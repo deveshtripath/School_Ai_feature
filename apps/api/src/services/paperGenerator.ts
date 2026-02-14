@@ -10,7 +10,7 @@ export async function generatePaper(spec: PaperSpec): Promise<GeneratedPaper> {
 }
 
 async function generateWithOpenAI(spec: PaperSpec): Promise<GeneratedPaper> {
-  const apiKey = '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';
+  const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) throw new Error("OPENAI_API_KEY is required for PAPER_PROVIDER=openai");
 
   const modelPrimary = process.env.PAPER_MODEL_PRIMARY || process.env.OPENAI_MODEL_PRIMARY || "gpt-4.1";
